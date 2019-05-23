@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - Statefull Components
 - React routing
 - redux-form Integration
+- Material UI
 
 ## Folder Structure
 
@@ -23,10 +24,18 @@ advanced-react/
          home
       About
          about
-        banner
+         banner
       Counter
          counter
+      Contact
+         contactUs
     images
+    common
+         header
+    redux
+         actions
+         reducers
+         store
     App.css
     App.js
     routes.js
