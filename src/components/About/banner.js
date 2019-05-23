@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Stateless component
+// gets values from props and renders it. No modification
 function Banner(props) {
     return (
         <div className={props.imageClass}>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Banner from './banner';
-import image from '../images/bg.png';
+import image from '../../images/bg.png';
 
 class About extends Component {
     render() {
