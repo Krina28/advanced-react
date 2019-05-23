@@ -5,7 +5,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React Fragments
 - Stateless Components
 - Statefull Components
-- 
+- React routing
+- redux-form Integration
 
 ## Folder Structure
 
