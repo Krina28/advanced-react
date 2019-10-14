@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
+import { CSSTransition } from 'react-transition-group';
+import './home.css';
 
 export default function PostList() {
     // Initialize state to hold the posts
@@ -22,7 +23,7 @@ export default function PostList() {
         <div>
             {
                 posts.map(post => (
-                    <List key={post.id}>
+                    <CSSTransition key={post.id} timeout={200} classNames="my-node">
                         <ListItem>
                             <ListItemAvatar>
                                 <Avatar>
@@ -31,7 +32,7 @@ export default function PostList() {
                             </ListItemAvatar>
                             <ListItemText primary={post.title} secondary={post.author} />
                         </ListItem>
-                    </List>
+                    </CSSTransition>
                 ))
             }
         </div>

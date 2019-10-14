@@ -19,7 +19,24 @@ class Counter extends Component {
         })
     }
 
+    componentDidUpdate = (state, props) => {
+        console.log('componentDidUpdate', state, props)
+    }
+
+    componentWillUnmount = () => {
+        console.log('componentWillUnmount')
+    }
+
+    shouldComponentUpdate = () => {
+        if (this.state.counter == 2) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     render() {
+        console.log('render')
         // We can access the counter property through this.state
         return (
             <div>
