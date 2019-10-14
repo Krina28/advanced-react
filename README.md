@@ -22,11 +22,13 @@ advanced-react/
     components
       Home
          home
+         counter
+         counter_hooks
+         list
+         welcome
       About
          about
          banner
-      Counter
-         counter
       Contact
          contactUs
     images
