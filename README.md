@@ -8,6 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React routing
 - redux-form Integration
 - Material UI
+- Testing
 
 ## Folder Structure
 
