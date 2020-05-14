@@ -69,6 +69,7 @@ class ContactUs extends Component {
                     <Field name="email" component={renderTextField} type="email" />
                 </div>
                 <Button variant="outlined" color="primary" type="submit">Submit</Button>
+                <Button variant="outlined" color="primary" type="button">Reset</Button>
             </form>
         )
     }
