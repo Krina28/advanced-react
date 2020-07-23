@@ -7,39 +7,28 @@ export const axiosAPI = axios.create({
     parse: true,
 });
 
-// const getAccessToken = async () => {
-//     await axios.get('https://jsonplaceholder.typicode.com/posts')
-//         .then(function (response) {
-//             // handle success
-//             console.log(response);
-//             return response.data;
-//         })
-//         .catch(function (error) {
-//             // handle error
-//             console.log(error);
-//         })
-//         .finally(function () {
-//             // always executed
-//         });
-// }
+const getAccessToken = async () => {
+    await axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then(function (response) {
+            // handle success
+            console.log(response);
+            return response.data;
+        })
+        .catch(function (error) {
+            // handle error
+            console.log(error);
+        })
+        .finally(function () {
+            // always executed
+        });
+};
 
 axiosAPI.interceptors.request.use(
     async (config) => {
         console.log("config", config);
-        await axios
-            .get("https://jsonplaceholder.typicode.com/posts")
-            .then(function (response) {
-                // handle success
-                console.log(">>response", response);
-                return response.data;
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+        let accessToken = await getAccessToken();
+        console.log("accessToken", accessToken);
         // Do something before request is sent
         return config;
     },
