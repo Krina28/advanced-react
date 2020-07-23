@@ -3,14 +3,18 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
 import reducer from "./reducers";
 //combine formReducer with all application's reducers
-import { reducer as formReducer } from 'redux-form';
+import { reducer as formReducer } from "redux-form";
 
 const rootReducer = combineReducers({
     reducer,
-    form: formReducer
-})
+    form: formReducer,
+});
 
 export default function configureStore(initialState) {
-    const store = createStore(rootReducer, initialState, applyMiddleware(logger));
+    const store = createStore(
+        rootReducer,
+        initialState,
+        applyMiddleware(logger)
+    );
     return store;
 }

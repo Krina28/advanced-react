@@ -1,7 +1,7 @@
 import ACTIONS from "./actions";
 
 const defaultState = {
-    data: {}
+    data: {},
 };
 
 const userReducer = (state = defaultState, action) => {

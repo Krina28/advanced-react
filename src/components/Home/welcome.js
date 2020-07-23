@@ -22,7 +22,7 @@ export default function Welcome() {
         <input
             ref={inputRef}
             value={value}
-            onChange={e => setValue(e.target.value)}
+            onChange={(e) => setValue(e.target.value)}
         />
     );
 }
