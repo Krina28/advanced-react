@@ -33,5 +33,10 @@
         "npm run pretty",
         "git add"
     ]
+},
+"husky": { 
+  "hooks": {
+      "pre-commit": "lint-staged"
+  }
 }
 }
