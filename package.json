@@ -1,6 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "./mysub",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
@@ -15,11 +16,28 @@
     "redux-form": "^8.2.0",
     "redux-logger": "^3.0.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pretty": "prettier --write --tab-width 4 \"src/**/*.js\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+        "npm run pretty",
+        "git add"
+    ]
+},
+"husky": { 
+  "hooks": {
+      "pre-commit": "lint-staged"
   }
+}
 }

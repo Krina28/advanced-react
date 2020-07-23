@@ -1,4 +1,4 @@
-import { axiosAPI } from './index';
+import { axiosAPI } from "./index";
 
 class UsersService {
     getAllCurrencyPairs() {

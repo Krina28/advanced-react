@@ -1,14 +1,15 @@
-import axios from 'axios';
+import axios from "axios";
 
-axios.defaults.headers.common['Authorization'] = 'token is ';
+axios.defaults.headers.common["Authorization"] = "token is ";
 
 export const axiosAPI = axios.create({
     baseURL: `https://jsonplaceholder.typicode.com/`,
-    parse: true
+    parse: true,
 });
 
 const getAccessToken = async () => {
-    await axios.get('https://jsonplaceholder.typicode.com/posts')
+    await axios
+        .get("https://jsonplaceholder.typicode.com/posts")
         .then(function (response) {
             // handle success
             console.log(response);
@@ -21,15 +22,18 @@ const getAccessToken = async () => {
         .finally(function () {
             // always executed
         });
-}
+};
 
-axiosAPI.interceptors.request.use(async (config) => {
-    console.log('config', config)
-    let accessToken = await getAccessToken();
-    console.log('accessToken', accessToken)
-    // Do something before request is sent
-    return config;
-}, function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-});
+axiosAPI.interceptors.request.use(
+    async (config) => {
+        console.log("config", config);
+        let accessToken = await getAccessToken();
+        console.log("accessToken", accessToken);
+        // Do something before request is sent
+        return config;
+    },
+    function (error) {
+        // Do something with request error
+        return Promise.reject(error);
+    }
+);

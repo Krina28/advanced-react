@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const defaultProps = {
     initialPage: 1,
-    pageSize: 10
+    pageSize: 10,
 };
 
 class Pagination extends React.Component {
@@ -70,7 +70,9 @@ class Pagination extends React.Component {
         const endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 
         // create an array of pages to ng-repeat in the pager control
-        const pages = [...Array((endPage + 1) - startPage).keys()].map(i => startPage + i);
+        const pages = [...Array(endPage + 1 - startPage).keys()].map(
+            (i) => startPage + i
+        );
 
         // return object with all pager properties required by the view
         return {
@@ -82,9 +84,9 @@ class Pagination extends React.Component {
             endPage,
             startIndex,
             endIndex,
-            pages
+            pages,
         };
-    }
+    };
 
     render() {
         const { pager } = this.state;
@@ -96,32 +98,61 @@ class Pagination extends React.Component {
 
         return (
             <ul className="pagination flex-wrap">
-                {
-                    pager.currentPage > 3 &&
-                    <li className={pager.currentPage === 1 ? 'disabled page-item' : 'page-item'}>
+                {pager.currentPage > 3 && (
+                    <li
+                        className={
+                            pager.currentPage === 1
+                                ? "disabled page-item"
+                                : "page-item"
+                        }
+                    >
                         <button
                             type="button"
                             className="page-link"
-                            onClick={() => this.setPage(pager.currentPage - (pager.currentPage > 3 && pager.currentPage < 6 ? 3 : 5))}
+                            onClick={() =>
+                                this.setPage(
+                                    pager.currentPage -
+                                        (pager.currentPage > 3 &&
+                                        pager.currentPage < 6
+                                            ? 3
+                                            : 5)
+                                )
+                            }
                         >
-                            Previous({pager.currentPage > 3 && pager.currentPage < 6 ? 3 : 5})
-            </button>
+                            Previous(
+                            {pager.currentPage > 3 && pager.currentPage < 6
+                                ? 3
+                                : 5}
+                            )
+                        </button>
                     </li>
-                }
-                {
-                    pager.currentPage !== 1 &&
-                    <li className={pager.currentPage === 1 ? 'disabled page-item' : 'page-item'}>
+                )}
+                {pager.currentPage !== 1 && (
+                    <li
+                        className={
+                            pager.currentPage === 1
+                                ? "disabled page-item"
+                                : "page-item"
+                        }
+                    >
                         <button
                             type="button"
                             className="page-link"
                             onClick={() => this.setPage(pager.currentPage - 1)}
                         >
                             Previous
-            </button>
+                        </button>
                     </li>
-                }
+                )}
                 {pager.pages.map((page, index) => (
-                    <li key={index} className={pager.currentPage === page ? 'page-item active' : 'page-item'}>
+                    <li
+                        key={index}
+                        className={
+                            pager.currentPage === page
+                                ? "page-item active"
+                                : "page-item"
+                        }
+                    >
                         <button
                             type="button"
                             className="page-link"
@@ -131,30 +162,53 @@ class Pagination extends React.Component {
                         </button>
                     </li>
                 ))}
-                {
-                    pager.currentPage !== pager.totalPages &&
-                    <li className={pager.currentPage === pager.totalPages ? 'disabled page-item' : 'page-item'}>
+                {pager.currentPage !== pager.totalPages && (
+                    <li
+                        className={
+                            pager.currentPage === pager.totalPages
+                                ? "disabled page-item"
+                                : "page-item"
+                        }
+                    >
                         <button
                             type="button"
                             className="page-link"
                             onClick={() => this.setPage(pager.currentPage + 1)}
                         >
                             Next
-            </button>
+                        </button>
                     </li>
-                }
-                {
-                    (pager.totalPages - (pager.currentPage + 2)) > 0 &&
-                    <li className={pager.currentPage === pager.totalPages ? 'disabled page-item' : 'page-item'}>
+                )}
+                {pager.totalPages - (pager.currentPage + 2) > 0 && (
+                    <li
+                        className={
+                            pager.currentPage === pager.totalPages
+                                ? "disabled page-item"
+                                : "page-item"
+                        }
+                    >
                         <button
                             type="button"
                             className="page-link"
-                            onClick={() => this.setPage(pager.currentPage + ((pager.totalPages - (pager.currentPage + 4)) > 0 ? 5 : 3))}
+                            onClick={() =>
+                                this.setPage(
+                                    pager.currentPage +
+                                        (pager.totalPages -
+                                            (pager.currentPage + 4) >
+                                        0
+                                            ? 5
+                                            : 3)
+                                )
+                            }
                         >
-                            Next({(pager.totalPages - (pager.currentPage + 4)) > 0 ? 5 : 3})
-            </button>
+                            Next(
+                            {pager.totalPages - (pager.currentPage + 4) > 0
+                                ? 5
+                                : 3}
+                            )
+                        </button>
                     </li>
-                }
+                )}
             </ul>
         );
     }
